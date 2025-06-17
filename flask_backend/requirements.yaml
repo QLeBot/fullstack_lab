@@ -1,0 +1,11 @@
+name: flask_backend
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - flask
+  - pip
+  - pip:
+      # Add any pip-only packages here, for example:
+      # - flask-cors
