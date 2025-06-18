@@ -1,19 +1,91 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import "./gradient.css";
 
 export default function Exhibit1() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Create gradient
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#f9df77');
+    gradient.addColorStop(0.5, '#945629');
+    gradient.addColorStop(1, '#680f0f');
+    gradient.addColorStop(0.7, '#944949');
+    gradient.addColorStop(0.8, '#944242');
+    gradient.addColorStop(1, '#942a61');
+
+    // Fill canvas with gradient
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Add noise effect
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    
+    for (let i = 0; i < data.length; i += 4) {
+      const noise = Math.random() * 30 - 15;
+      data[i] = Math.max(0, Math.min(255, data[i] + noise));
+      data[i + 1] = Math.max(0, Math.min(255, data[i + 1] + noise));
+      data[i + 2] = Math.max(0, Math.min(255, data[i + 2] + noise));
+    }
+    
+    ctx.putImageData(imageData, 0, 0);
+
+    return () => window.removeEventListener('resize', resizeCanvas);
+  }, []);
+
   return (
     <div className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden">
-      {/* Background gradient and noise overlay */}
-      <div className="absolute inset-0 -z-10">
-        <div className="w-full h-full bg-gradient-to-br from-blue-100 via-pink-100 to-purple-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
-        <div className="w-full h-full absolute inset-0 opacity-40 mix-blend-overlay pointer-events-none" style={{backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E')", backgroundRepeat: 'repeat'}} />
+      {/* Image Block */}
+      <div className="w-full h-[50vh] relative">
+        <img 
+          src="/assets/img/main_header.webp"
+          alt="Desert View"
+          className="w-full h-full object-cover"
+        />
       </div>
+      
+      {/* Gradient Block */}
+      <div className="w-full h-[50vh] relative">
+        <canvas
+          ref={canvasRef}
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* Image Block */}
+      <div className="w-full h-[50vh] relative">
+        <img 
+          src="/assets/img/desert_view.jpg"
+          alt="Desert View"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       {/* Hero Section */}
-      <header className="mt-24 mb-16 text-center">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 font-sans bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600">Museum of Pages</h1>
-        <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-8 font-sans">Explore a curated collection of interactive web exhibits. Each room is a unique experience—step inside and discover something new!</p>
+      <header className="absolute top-0 left-0 right-0 mt-24 mb-16 text-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 font-sans bg-clip-text text-black">Banyan Tree AlUla</h1>
+        <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-8 font-sans">Enjoy the beauty of the desert</p>
         <Link href="#features" className="inline-block px-8 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition">Explore Exhibits</Link>
       </header>
+
       {/* Features Section */}
       <section id="features" className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         {[1, 2, 3].map((num) => (
@@ -27,6 +99,7 @@ export default function Exhibit1() {
           </div>
         ))}
       </section>
+
       {/* Call to Action */}
       <section className="w-full max-w-3xl mx-auto mb-24 text-center">
         <div className="rounded-2xl bg-gradient-to-r from-blue-500 via-pink-400 to-purple-500 p-8 shadow-2xl text-white font-sans">
@@ -35,6 +108,7 @@ export default function Exhibit1() {
           <Link href="#features" className="inline-block px-8 py-3 rounded-full bg-white/90 text-blue-700 font-semibold shadow hover:bg-white transition">Browse Exhibits</Link>
         </div>
       </section>
+
       {/* Footer */}
       <footer className="mt-auto mb-6 text-gray-400 text-xs text-center font-sans">
         &copy; {new Date().getFullYear()} Museum of Pages. All rights reserved.
