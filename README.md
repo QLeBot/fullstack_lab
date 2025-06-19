@@ -1,4 +1,4 @@
-# Fullstack Lab - Museum of Pages
+# Fullstack Lab - Collection of Pages
 
 A collection of web development projects showcasing different techniques and designs.
 
