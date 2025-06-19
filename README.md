@@ -1,22 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fullstack Lab - Museum of Pages
+
+A collection of web development projects showcasing different techniques and designs.
+
+## Project Structure
+
+### 🏠 Main Pages
+- **Home** (`/`) - Main landing page with project navigation
+
+### 🛠️ Tools
+- **Color Palette** (`/projects_pages/color_palette`) - Color palette generator from image uploads
+- **Gradient Generator** (`/projects_pages/gradient_generator`) - Interactive gradient generator with custom controls
+
+### 🏨 Landing Pages
+- **Hotel Landing** (`/projects_pages/hotel_landing`) - A beautiful hotel landing page with modern design
+
+### 📊 Dashboards
+- **Stock Analyzer** (`/projects_pages/stock_analyzer`) - Stock market analysis dashboard with filters
+
+### 🚀 Projects
+- **Project 5** (`/projects_pages/exhibit5`) - A placeholder for future project
+- **Project 6** (`/projects_pages/exhibit6`) - A placeholder for future project
+
+## Features
+
+- **Responsive Design** - All pages work on desktop and mobile
+- **Dark Mode Support** - Automatic theme switching
+- **Navigation Component** - Easy navigation between projects
+- **Modern UI** - Clean, modern design with smooth animations
+
+## Tech Stack
+
+- **Next.js 14** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Canvas API** - For gradient generation
+- **ColorThief** - For color extraction from images
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Organization
+
+The projects are organized by category for better navigation:
+
+- **Tools**: Utility applications like color and gradient generators
+- **Landing Pages**: Marketing and presentation pages
+- **Dashboards**: Data visualization and analysis tools
+- **Projects**: Experimental and showcase projects
+
+All project pages are located in the `app/projects_pages/` directory for better organization.
+
+Each project includes:
+- Responsive design
+- Dark mode support
+- Navigation component for easy movement between projects
+- Modern UI/UX patterns
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
