@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import "./gradient.css";
+//import "./gradient.css";
+import GradientCanvas from "@/app/components/GradientCanvas";
 
 export default function Exhibit1() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -59,6 +60,48 @@ export default function Exhibit1() {
           src="/assets/img/main_header.webp"
           alt="Desert View"
           className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Image Block */}
+      <div className="w-full h-[50vh] relative">
+        <img 
+          src="/assets/img/image-mesh-gradient.png"
+          alt="Mesh Gradient"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Gradient Block */}
+      <div className="w-full h-[50vh] relative">
+        <GradientCanvas
+          className="w-full h-full"
+          colorStops={[
+            { offset: 0, color: "#0C090B" },
+            { offset: 0.2, color: "#281A11" },
+            { offset: 0.5, color: "#CAD1DD" },
+            { offset: 0.5, color: "#462D1C" },
+            { offset: 0.5, color: "#E0CDC5" },
+            { offset: 0.5, color: "#3A393E" },
+            { offset: 0.5, color: "#B5BED0" },
+            { offset: 0.5, color: "#584436" },
+            { offset: 0.5, color: "#9AAFC5" }
+          ]}
+        />
+      </div>
+
+      {/* Gradient Block */}
+      <div className="w-full h-[50vh] relative">
+        <GradientCanvas
+          className="w-full h-full"
+          colorStops={[
+            { offset: 0, color: "#f9df77" },
+            { offset: 0.5, color: "#945629" },
+            { offset: 1, color: "#680f0f" },
+            { offset: 0.7, color: "#944949" },
+            { offset: 0.8, color: "#944242" },
+            { offset: 1, color: "#942a61" }
+          ]}
         />
       </div>
       
