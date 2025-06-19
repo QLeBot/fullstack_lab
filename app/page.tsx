@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-8">
       <header className="mb-10 text-center">
-        <h1 className="text-4xl font-bold mb-2">Welcome to the Museum of Pages</h1>
+        <h1 className="text-4xl font-bold mb-2">Dashboard of all pages</h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
           Explore our collection of unique projects. Each room showcases different web development techniques and designs!
         </p>
