@@ -2,23 +2,22 @@
 
 import React from 'react';
 import CardWithForm from '@/app/projects_pages/portfolio/components/project-card';
-//import { GeistSans } from 'geist/font/sans';
-//import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import ProjectCard from '@/app/projects_pages/portfolio/components/project-card';
 import ViewSwitcher from '@/app/projects_pages/portfolio/components/view-switcher';
-import { Linkedin, Github, Mail } from "lucide-react";
 import { 
   FaPython, FaDatabase, FaAws, FaMicrosoft, 
   FaReact, FaHtml5, FaCss3, FaJava, FaSwift, 
   FaAndroid 
 } from 'react-icons/fa';
 import { 
-  SiPython, SiPandas, SiNumpy, SiKeras, SiScikitlearn, SiTensorflow, SiPytorch, 
+  SiPython, SiPandas, SiPolars,SiNumpy, SiKeras, SiScikitlearn, SiTensorflow, SiPytorch, 
   SiMongodb, SiPostgresql, SiMysql, SiOracle, SiApachespark, SiScala, SiDatabricks, SiApachekafka, SiDbt, SiApacheairflow,
   SiQlik,
   SiTypescript, SiJavascript, SiNextdotjs, SiTailwindcss, 
   SiKotlin, SiSwift
 } from 'react-icons/si';
+
 import BlurText from "@/app/projects_pages/portfolio/components/ui/text/BlurText";
 import SplitText from "@/app/projects_pages/portfolio/components/ui/text/SplitText";
 import GradientText from "@/app/projects_pages/portfolio/components/ui/text/GradientText";
@@ -36,7 +35,7 @@ const Portfolio = () => {
   const containerRef = useRef(null);
   
   return (
-    <div className="w-full flex flex-col min-h-screen bg-gradient-darker space-mono-regular">
+    <div className="w-full flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 space-mono-regular">
       <PageNavigator />
 
       {/* Spacing */}
@@ -153,6 +152,10 @@ const Portfolio = () => {
                 <div className="flex flex-col items-center">
                   <SiPandas className="w-8 h-8 text-blue-800" />
                   <span className="text-sm mt-1">Pandas</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <SiPolars className="w-8 h-8 text-blue-800" />
+                  <span className="text-sm mt-1">Polars</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <SiNumpy className="w-8 h-8 text-blue-600" />

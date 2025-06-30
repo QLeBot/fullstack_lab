@@ -37,10 +37,10 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    name: "Project 5",
-    description: "A placeholder for future project",
-    route: "/projects_pages/exhibit5",
-    category: "Projects"
+    name: "Portfolio",
+    description: "Personal portfolio showcasing skills and experience",
+    route: "/projects_pages/portfolio",
+    category: "Portfolio"
   },
   {
     id: 6,
